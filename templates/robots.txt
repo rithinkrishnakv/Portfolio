@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/private/
 
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://rithinkrishnakv.vercel.app/sitemap.xml
