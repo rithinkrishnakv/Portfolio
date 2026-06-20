@@ -61,6 +61,14 @@ PROJECTS = [
         'tags': ['Python', 'Defense', 'Simulation']
     },
     {
+    'name': 'GoShadow',
+    'url': 'https://github.com/rithinkrishnakv/GoShadow',
+    'category': 'Security Tool',
+    'icon': 'fas fa-mask',
+    'description': 'A stealthy, asynchronous Command & Control (C2) framework implemented in Go utilizing Discord as a secure transport layer with obfuscated payloads.',
+    'tags': ['Golang', 'C2-Framework', 'Red-Team', 'Python', 'OpSec']
+    },
+    {
         'name': 'Medium Publications',
         'url': 'https://medium.com/@rithinkrishnakv',
         'category': 'CTF & Research',
