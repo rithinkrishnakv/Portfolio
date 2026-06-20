@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Rithin Krishna K V — Cybersecurity Researcher, VAPT & Responsible Disclosure"/>
+<meta name="keywords" content="cybersecurity, penetration testing, VAPT, ethical hacking, CTF, security research"/>
+<meta name="author" content="Rithin Krishna K V"/>
+<meta property="og:title" content="Rithin Krishna K V — Cybersecurity Researcher"/>
+<meta property="og:description" content="Cybersecurity Researcher focused on VAPT & Responsible Disclosure | CTF Player"/>
+<meta property="og:url" content="https://yoursite.com"/>
+<meta property="og:type" content="website"/>
+<title>Rithin Krishna K V • Cybersecurity Researcher</title>
+<link rel="canonical" href="https://yoursite.com"/>
+<link rel="icon" type="image/png" href="{{ assets.favicon }}"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<div class="aurora"><span></span><span></span><span></span></div>
+<div class="depth-field"><canvas id="field"></canvas></div>
+<div class="grain"></div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-pill glass" id="navPill">
+    <a class="brand" href="#"><span class="dot"></span>Rithin</a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-pill-indicator" id="navIndicator"></div>
+      <a class="active" data-page="about">About</a>
+      <a data-page="projects">Projects</a>
+      <a data-page="research">Research</a>
+      <a data-page="contact">Contact</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ABOUT -->
+  <div class="page active" id="page-about">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="status-chip"><span class="dot"></span>{{ about.streak }}</div>
+        <h1 class="hero-name">Rithin Krishna <span class="accent">K V</span></h1>
+        <p class="hero-role"><b>{{ about.bio_short.split('|')[0].strip() }}</b> {{ about.bio_short.split('|')[1] if '|' in about.bio_short else '' }}</p>
+        <div class="chip-row">
+          <span class="glass-chip">VAPT</span>
+          <span class="glass-chip">Responsible Disclosure</span>
+          <span class="glass-chip">CTF</span>
+          <span class="glass-chip">Python</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn btn-solid" onclick="goTo('projects')"><i class="fas fa-code-branch"></i> My Repos</button>
+          <a class="btn btn-glass" href="{{ assets.resume }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> Resume</a>
+          <button class="btn btn-glass" onclick="goTo('contact')"><i class="fas fa-arrow-right"></i> Contact</button>
+        </div>
+      </div>
+
+      <div class="profile-pic glass">
+        <img src="{{ assets.profile_photo }}" alt="Rithin Krishna K V" loading="lazy"/>
+        <div class="profile-pic-placeholder"><i class="fas fa-user"></i></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="eyebrow reveal"><span class="line"></span>About Me</div>
+      <h2 class="h2 reveal">Researcher, Builder, Breaker</h2>
+
+      <div class="glass reveal" style="margin-top: var(--sp-2xl);">
+        <div class="section-content">
+          {% for paragraph in about.bio_long.split('\n\n') %}
+          <p style="color: var(--ink-dim); font-size: 0.97rem; line-height: 1.8;">{{ paragraph }}</p>
+          {% endfor %}
+          <div style="display: flex; align-items: center; gap: var(--sp-md); margin-top: var(--sp-xl); padding-top: var(--sp-lg); border-top: 1px solid var(--glass-edge);">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); display: inline-block; animation: beat 2.2s ease-in-out infinite;"></span>
+            <span style="font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.05em;">{{ about.status }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="page" id="page-projects">
+    <div class="eyebrow reveal"><span class="line"></span>Portfolio</div>
+    <h1 class="h1 reveal">Tools & Repositories</h1>
+    <p class="lede reveal">Security tools, VAPT frameworks, and CTF documentation.</p>
+
+    <div class="filter-row reveal">
+      <span class="f-pill active" data-f="all">All</span>
+      <span class="f-pill" data-f="Security Tool">Security Tools</span>
+      <span class="f-pill" data-f="CTF & Research">CTF & Research</span>
+    </div>
+
+    <!-- Projects auto-sync from config - zero API calls, no auth needed -->
+    <div class="proj-grid" id="projGrid">
+      <!-- Populated by JavaScript config -->
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="page" id="page-research">
+    <div class="eyebrow reveal"><span class="line"></span>Research</div>
+    <h1 class="h1 reveal">Current Work</h1>
+    <p class="lede reveal">Ongoing research in vulnerability assessment and responsible disclosure practices.</p>
+
+    <div class="glass research-banner reveal" style="margin-top: var(--sp-2xl);">
+      <i class="fas fa-flask"></i>
+      <h3>Currently Researching & Developing</h3>
+      <p>Deep-diving into <b style="color: var(--cyan);">advanced VAPT techniques</b> and building automation frameworks for security assessment workflows. New research papers & tool updates coming regularly.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <div class="eyebrow reveal"><span class="line"></span>Get in Touch</div>
+    <h1 class="h1 reveal">Let's Connect</h1>
+    <p class="lede reveal">Open to collaboration, security work, and conversations about research.</p>
+
+    <div class="contact-grid reveal" style="margin-top: var(--sp-2xl);">
+      <div class="glass contact-info">
+        <h2>Contact</h2>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-envelope"></i></div>
+          <div style="flex:1;">
+            <span class="c-label">Email</span>
+            <div class="c-val c-val-copy" onclick="copyToClipboard('{{ contact.email }}')">
+              {{ contact.email }}
+              <i class="fas fa-copy"></i>
+            </div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon" style="background:linear-gradient(155deg, rgba(61,255,176,0.1), rgba(61,255,176,0.02)); border-color:rgba(61,255,176,0.2); color:var(--green);"><i class="fas fa-location-dot"></i></div>
+          <div style="flex:1;">
+            <span class="c-label">Location</span>
+            <div class="c-val">{{ contact.location }}</div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon" style="background:linear-gradient(155deg, rgba(155,135,255,0.14), rgba(155,135,255,0.02)); border-color:rgba(155,135,255,0.25); color:var(--violet);"><i class="fas fa-circle-check"></i></div>
+          <div style="flex:1;">
+            <span class="c-label">Status</span>
+            <div class="c-val" style="color:var(--green);">Available for opportunities</div>
+          </div>
+        </div>
+
+        <div class="social-grid">
+          <a class="soc-btn" href="{{ contact.links.linkedin }}" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a class="soc-btn" href="{{ contact.links.github }}" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i> GitHub</a>
+          <a class="soc-btn" href="{{ contact.links.twitter }}" target="_blank" rel="noopener noreferrer" title="X/Twitter"><i class="fab fa-x-twitter"></i> X</a>
+          <a class="soc-btn" href="{{ contact.links.tryhackme }}" target="_blank" rel="noopener noreferrer" title="TryHackMe"><i class="fas fa-shield-halved"></i> THM</a>
+        </div>
+      </div>
+
+      <div class="glass contact-form">
+        <h2>Send a Message</h2>
+        <form onsubmit="handleForm(event)">
+          <div class="f-row">
+            <div class="f-group">
+              <label class="f-lbl">Name</label>
+              <input class="f-input" name="name" placeholder="Your name" required>
+            </div>
+            <div class="f-group">
+              <label class="f-lbl">Email</label>
+              <input class="f-input" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="f-group full">
+            <label class="f-lbl">Subject</label>
+            <input class="f-input" name="subject" placeholder="What's this about?">
+          </div>
+          <div class="f-group full">
+            <label class="f-lbl">Message</label>
+            <textarea class="f-textarea" name="message" rows="5" placeholder="Tell me about it..." required></textarea>
+          </div>
+          <button class="btn btn-solid" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="glass avail-banner reveal">
+      <div class="avail-status">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); display:inline-block; animation:beat 2.2s ease-in-out infinite;"></span>
+        <h2>Open to Opportunities</h2>
+      </div>
+      <p class="avail-desc">Looking for roles in Cybersecurity, VAPT, and security research where I can contribute meaningfully and grow professionally.</p>
+      <div class="role-chips">
+        <span class="glass-chip">Penetration Tester</span>
+        <span class="glass-chip">Security Researcher</span>
+        <span class="glass-chip">Security Engineer</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="glass footer-glass">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand-name">Rithin Krishna K V</div>
+        <div class="f-brand-sub">Cybersecurity Researcher<br>VAPT & Responsible Disclosure Advocate</div>
+        <div class="f-social">
+          <a class="f-soc-btn" href="{{ contact.links.github }}" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+          <a class="f-soc-btn" href="{{ contact.links.linkedin }}" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="f-soc-btn" href="{{ contact.links.twitter }}" target="_blank" rel="noopener noreferrer" title="X/Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a class="f-soc-btn" href="mailto:{{ contact.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a data-page="about">About</a></li>
+          <li><a data-page="projects">Projects</a></li>
+          <li><a data-page="research">Research</a></li>
+          <li><a data-page="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Platforms</h4>
+        <ul>
+          <li><a href="{{ contact.links.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="{{ contact.links.twitter }}" target="_blank" rel="noopener noreferrer">X/Twitter</a></li>
+          <li><a href="{{ contact.links.tryhackme }}" target="_blank" rel="noopener noreferrer">TryHackMe</a></li>
+          <li><a href="{{ contact.links.medium }}" target="_blank" rel="noopener noreferrer">Medium</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© {{ year }} Rithin Krishna K V • All rights reserved</p>
+    <p>Built with Liquid Glass Design System</p>
+  </div>
+</footer>
+
+<button class="btt" id="btt"><i class="fas fa-arrow-up"></i></button>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+// Projects config from backend
+const PROJECTS = {{ projects|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+
+</body>
+</html>

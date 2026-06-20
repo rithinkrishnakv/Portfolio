@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rithin Krishna K V • Cybersecurity Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<div class="aurora"><span></span><span></span><span></span></div>
+<div class="depth-field"><canvas id="field"></canvas></div>
+<div class="grain"></div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-pill glass">
+    <a class="brand" href="/"><span class="dot"></span>Rithin</a>
+    <div class="nav-links">
+      <a href="/" onclick="goHome()">About</a>
+      <a href="/">Projects</a>
+      <a href="/">Contact</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<script>
+function goHome() { window.location = '/'; }
+
+// Particle canvas
+const canvas = document.getElementById('field');
+const ctx = canvas.getContext('2d');
+let W, H, pts = [];
+function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+function rnd(a, b) { return a + Math.random() * (b - a); }
+function mk() { return { x: rnd(0, W), y: rnd(0, H), vx: rnd(-0.06, 0.06), vy: rnd(-0.1, -0.02), r: rnd(0.6, 1.6), a: rnd(0.08, 0.3) }; }
+function init() { resize(); pts = Array.from({ length: 40 }, mk); }
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  pts.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.y < -5) { p.y = H + 5; p.x = rnd(0, W); }
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(94,228,255,${p.a})`; ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+init(); draw();
+window.addEventListener('resize', resize);
+</script>
+</body>
+</html>

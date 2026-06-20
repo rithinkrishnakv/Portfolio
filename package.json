@@ -1,0 +1,21 @@
+{
+  "name": "rithin-portfolio",
+  "version": "2.0.0",
+  "description": "Cybersecurity Portfolio - Rithin Krishna K V",
+  "author": "Rithin Krishna K V <rithinkrishnakv@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"flask --app app run\"",
+    "production": "npm run build:css && gunicorn wsgi:app"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.3.0",
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "9.x || 10.x"
+  }
+}
