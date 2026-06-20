@@ -84,7 +84,7 @@ CONTACT_INFO = {
     'phone': '',  # Optional
     'links': {
         'github': 'https://github.com/rithinkrishnakv',
-        'linkedin': 'https://linkedin.com/in/rithin-krishna',
+        'linkedin': 'https://www.linkedin.com/in/rithin-krishna-k-v-15593b381',
         'twitter': 'https://x.com/RithinSec',
         'medium': 'https://medium.com/@rithinkrishnakv',
         'tryhackme': 'https://tryhackme.com/p/Rithinkrishna'
