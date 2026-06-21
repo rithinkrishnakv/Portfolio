@@ -69,6 +69,14 @@ PROJECTS = [
     'tags': ['Golang', 'C2-Framework', 'Red-Team', 'Python', 'OpSec']
     },
     {
+    "name": "jobless-router",
+    "url": "https://github.com/rithinkrishnakv/jobless-router",
+    "category": "Security Tool",
+    "icon": "fas fa-shield-halved",
+    "description": "A real-time BGP zero-trust threat-intelligence engine that performs intent-based scoring, AS-path traversal, and RPKI validation on global routing firehose events.",
+    "tags": ["Python", "BGP", "Cyber-Security", "Threat-Intelligence", "Networking"]
+    },
+    {
         'name': 'Medium Publications',
         'url': 'https://medium.com/@rithinkrishnakv',
         'category': 'CTF & Research',
