@@ -2,7 +2,7 @@
 
 Personal portfolio site built to showcase my work in cybersecurity research, VAPT, and CTF write-ups. Built with Flask on the backend and a custom glassmorphism design system on the frontend.
 
-**Live site:**[ _add your deployed URL here_](https://rithinkrishnakv.vercel.app/)
+**Live site:**[rithinkrishnakv](https://rithinkrishnakv.vercel.app/)
 
 ## Features
 
