@@ -77,6 +77,14 @@ PROJECTS = [
     "tags": ["Python", "BGP", "Cyber-Security", "Threat-Intelligence", "Networking"]
     },
     {
+    'name': 'appraisal-dex',
+    'url': 'https://github.com/rithinkrishnakv/appraisal-dex',
+    'category': 'Security Tool',
+    'icon': 'fab fa-android',  # Instantly establishes mobile engineering specialization
+    'description': 'Automated Android SAST engine that maps complex taint paths, audits IPC exposure, and synthesizes weaponized ADB payloads and Frida verification scripts.',
+    'tags': ['Python', 'Android', 'SAST', 'Offensive-Sec']
+    },
+    {
         'name': 'Medium Publications',
         'url': 'https://medium.com/@rithinkrishnakv',
         'category': 'CTF & Research',
