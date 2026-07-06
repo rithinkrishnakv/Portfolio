@@ -45,20 +45,28 @@ ASSETS = {
 
 PROJECTS = [
     {
-        'name': 'mshwisper',
-        'url': 'https://github.com/rithinkrishnakv/mshwisper',
-        'category': 'Security Tool',
-        'icon': 'fas fa-microchip',
-        'description': 'Modular security framework for VAPT automation. Streamlines vulnerability scanning and assessment workflows with intelligent recon pipelines.',
-        'tags': ['Python', 'VAPT', 'Automation']
+    'name': 'appraisal-dex',
+    'url': 'https://github.com/rithinkrishnakv/appraisal-dex',
+    'category': 'Security Tool',
+    'icon': 'fab fa-android',  # Instantly establishes mobile engineering specialization
+    'description': 'Automated Android SAST engine that maps complex taint paths, audits IPC exposure, and synthesizes weaponized ADB payloads and Frida verification scripts.',
+    'tags': ['Python', 'Android', 'SAST', 'Offensive-Sec']
     },
     {
-        'name': 'aegismimic',
-        'url': 'https://github.com/rithinkrishnakv/aegismimic',
-        'category': 'Security Tool',
-        'icon': 'fas fa-shield-halved',
-        'description': 'Defense simulation toolkit for testing and validating security controls against known attack patterns. Built for red-blue exercises.',
-        'tags': ['Python', 'Defense', 'Simulation']
+    'name': 'godseye-ex',
+    'url': 'https://github.com/rithinkrishnakv/godseye-ex',
+    'category': 'Security Tool',
+    'icon': 'fas fa-eye',
+    'description': 'Advanced AST-based static analysis framework for browser extensions. Maps cross-context message passing, traces multi-file taint propagation, and exposes hidden remote code execution chains.',
+    'tags': ['Python', 'SAST', 'Static Analysis', 'Browser Extensions']
+    },
+    {
+    'name': 'aegismimic',
+    'url': 'https://github.com/rithinkrishnakv/aegismimic',
+    'category': 'Security Tool',
+    'icon': 'fas fa-shield-halved',
+    'description': 'Defense simulation toolkit for testing and validating security controls against known attack patterns. Built for red-blue exercises.',
+    'tags': ['Python', 'Defense', 'Simulation']
     },
     {
     'name': 'GoShadow',
@@ -77,12 +85,12 @@ PROJECTS = [
     "tags": ["Python", "BGP", "Cyber-Security", "Threat-Intelligence", "Networking"]
     },
     {
-    'name': 'appraisal-dex',
-    'url': 'https://github.com/rithinkrishnakv/appraisal-dex',
-    'category': 'Security Tool',
-    'icon': 'fab fa-android',  # Instantly establishes mobile engineering specialization
-    'description': 'Automated Android SAST engine that maps complex taint paths, audits IPC exposure, and synthesizes weaponized ADB payloads and Frida verification scripts.',
-    'tags': ['Python', 'Android', 'SAST', 'Offensive-Sec']
+        'name': 'mshwisper',
+        'url': 'https://github.com/rithinkrishnakv/mshwisper',
+        'category': 'Security Tool',
+        'icon': 'fas fa-microchip',
+        'description': 'Modular security framework for VAPT automation. Streamlines vulnerability scanning and assessment workflows with intelligent recon pipelines.',
+        'tags': ['Python', 'VAPT', 'Automation']
     },
     {
         'name': 'Medium Publications',
