@@ -72,7 +72,7 @@ PROJECTS = [
     "name": "vetod",
     "url": "https://github.com/rithinkrishnakv/vetod",
     "category": "Security Tool",
-    "icon": "fas fa-firewall",
+    "icon": "fas fa-shield-alt",
     "description": "A fail-closed, scope-enforcing proxy for bug bounty tooling featuring per-target rate limiting and automated evidence collection.",
     "tags": ["Python", "VAPT", "Proxy", "Security"]
     },
