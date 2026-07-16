@@ -69,6 +69,14 @@ PROJECTS = [
     'tags': ['Python', 'Defense', 'Simulation']
     },
     {
+    "name": "vetod",
+    "url": "https://github.com/rithinkrishnakv/vetod",
+    "category": "Security Tool",
+    "icon": "fas fa-shield-halved",
+    "description": "A fail-closed, scope-enforcing proxy for bug bounty tooling featuring per-target rate limiting and automated evidence collection.",
+    "tags": ["Python", "VAPT", "Proxy", "Security"]
+    },
+    {
     'name': 'GoShadow',
     'url': 'https://github.com/rithinkrishnakv/GoShadow',
     'category': 'Security Tool',
