@@ -77,14 +77,6 @@ PROJECTS = [
     "tags": ["Python", "VAPT", "Proxy", "Security"]
     },
     {
-    'name': 'GoShadow',
-    'url': 'https://github.com/rithinkrishnakv/GoShadow',
-    'category': 'Security Tool',
-    'icon': 'fas fa-mask',
-    'description': 'A stealthy, asynchronous Command & Control (C2) framework implemented in Go utilizing Discord as a secure transport layer with obfuscated payloads.',
-    'tags': ['Golang', 'C2-Framework', 'Red-Team', 'Python', 'OpSec']
-    },
-    {
     "name": "jobless-router",
     "url": "https://github.com/rithinkrishnakv/jobless-router",
     "category": "Security Tool",
